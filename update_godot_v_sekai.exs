@@ -1,19 +1,8 @@
 #!/usr/bin/env elixir
 
-version =
-  "config.sh"
-  |> File.read!()
-  |> String.split("\n")
-  |> Enum.find_value(fn line ->
-    case Regex.run(~r/^VERSION=(.+)$/, String.trim(line)) do
-      [_, v] -> String.trim(v)
-      _ -> nil
-    end
-  end) || raise "VERSION not found in config.sh"
-
 original_branch = "main"
-merge_remote = "v-sekai-godot"
-merge_branch = "groups-staging-#{version}"
+merge_remote = "v-sekai-fire"
+merge_branch = "multiplayer-fabric"
 
 argv = System.argv()
 
@@ -21,7 +10,7 @@ if Enum.any?(argv, &(&1 in ["-h", "--help"])) do
   IO.puts("""
   Usage: elixir #{__ENV__.file} [--help|-h] [--dry-run|--no-push|-n]
 
-  Compiles all branches in gitassembly-staging and pushes to V-Sekai/godot.
+  Compiles all branches in gitassembly-staging and pushes to V-Sekai-fire/multiplayer-fabric-godot.
 
   --help, -h       Display help
   --dry-run, -n    Do not push.
@@ -49,8 +38,7 @@ add_remote = fn name, url ->
 end
 
 IO.puts("Checkout remotes")
-add_remote.("v-sekai-godot", "https://github.com/V-Sekai/godot.git")
-add_remote.("PizzaLovers007", "https://github.com/PizzaLovers007/godot.git")
+add_remote.("v-sekai-fire", "https://github.com/V-Sekai-fire/multiplayer-fabric-godot.git")
 
 current_branch = String.trim(run!.("git", ["rev-parse", "--abbrev-ref", "HEAD"]))
 if current_branch != original_branch do
