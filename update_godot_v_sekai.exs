@@ -10,7 +10,7 @@ if Enum.any?(argv, &(&1 in ["-h", "--help"])) do
   IO.puts("""
   Usage: elixir #{__ENV__.file} [--help|-h] [--dry-run|--no-push|-n]
 
-  Compiles all branches in gitassembly-staging and pushes to V-Sekai-fire/multiplayer-fabric-godot.
+  Compiles all branches in gitassembly and pushes to V-Sekai-fire/multiplayer-fabric-godot.
 
   --help, -h       Display help
   --dry-run, -n    Do not push.
@@ -46,7 +46,7 @@ if current_branch != original_branch do
   System.halt(1)
 end
 
-IO.puts("*** Working on assembling gitassembly-staging")
+IO.puts("*** Working on assembling gitassembly")
 
 has_changes =
   case System.cmd("git", ["diff", "--quiet", "HEAD"], stderr_to_stdout: true) do
@@ -58,7 +58,7 @@ run!.("git", ["stash"])
 
 run!.("git", ["checkout", original_branch, "--force"])
 System.cmd("git", ["branch", "-D", merge_branch], stderr_to_stdout: true)
-run!.("python3", ["./thirdparty/git-assembler", "-av", "--recreate", "--config", "gitassembly-staging"])
+run!.("python3", ["./thirdparty/git-assembler", "-av", "--recreate", "--config", "gitassembly"])
 run!.("git", ["checkout", merge_branch, "-f"])
 
 if not dry_run do
