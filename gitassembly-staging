@@ -1,21 +1,9 @@
-stage groups-staging-4.6 remotes/v-sekai-godot/4.6
-merge groups-staging-4.6 remotes/v-sekai-godot/vsk-lottie-4.5 # Integrates Lottie animations, enhancing UI/UX in social VR applications.
-merge groups-staging-4.6 remotes/v-sekai-godot/vsk-flac-4.5 # Adds FLAC audio support, improving sound quality in VR environments.
-#merge groups-staging-4.6 remotes/v-sekai-godot/vsk-exrwav-movie-4.5 # Supports enhanced audio and video formats
-#merge groups-staging-4.6 remotes/v-sekai-godot/vsk-goal-task-planner-4.5 # Introduces AI task planning, useful for NPC behaviors in social VR.
-merge groups-staging-4.6 remotes/v-sekai-godot/vsk-speech-4.6 # Implements speech processing capabilities, enhancing communication in VR.
-merge groups-staging-4.6 remotes/v-sekai-godot/vsk-lasso-4.6 # Adds lasso tool for object interaction in VR, useful for user interfaces.
-merge groups-staging-4.6 remotes/v-sekai-godot/vsk-renik-4.6 # Updates ßthe RenIK system for better skeletal animation, enhancing avatar realism.
-merge groups-staging-4.6 remotes/v-sekai-godot/vsk-sqlite-4.6 # Store data in relational ways.
-merge groups-staging-4.6 remotes/v-sekai-godot/vsk-llvm-pdb-4.5 # Generate pdb with llvm-mingw
-merge groups-staging-4.6 remotes/v-sekai-godot/vsk-lbfgs-capsule-4.5 # L-BFGSB (Limited-memory Broyden-Fletcher-Goldfarb-Shanno with Bounds) is a variant of the L-BFGS optimization algorithm that supports bound constraints.
-merge groups-staging-4.6 remotes/v-sekai-godot/vsk-subdiv-4.6 # Subdivision in Godot with opensubdiv
-merge groups-staging-4.6 remotes/v-sekai-godot/resource-loader-whitelist-4.6
-merge groups-staging-4.6 remotes/v-sekai-godot/vsk-override-projection-4.6
-merge groups-staging-4.6 remotes/v-sekai-godot/vsk-tapered-capsules-4.5
-merge groups-staging-4.6 remotes/v-sekai-godot/vsk-goal-task-planner-4.6
-merge groups-staging-4.6 remotes/PizzaLovers007/play-scheduled
-merge groups-staging-4.6 remotes/v-sekai-godot/vsk-usd-4.6
-merge groups-staging-4.6 remotes/v-sekai-godot/vsk-joint-limitation-kusudama-4.6
-merge groups-staging-4.6 remotes/v-sekai-godot/vsk-nodepath-hash-4.6
-merge groups-staging-4.6 remotes/v-sekai-godot/vsk-expose-call-gui-input-for-vr-4.6
+merge groups-staging remotes/v-sekai-fire/feat/engine-patches # core/, scene/, editor/, servers/, drivers/, thirdparty/predictive_bvh, .github/workflows, misc patches
+merge groups-staging remotes/v-sekai-fire/feat/module-http3 # modules/http3 + thirdparty/picotls + picoquic + webtransportd + core/crypto
+merge groups-staging remotes/v-sekai-fire/feat/module-keychain # modules/keychain + thirdparty/keychain
+merge groups-staging remotes/v-sekai-fire/feat/module-lasso # modules/lasso
+merge groups-staging remotes/v-sekai-fire/feat/module-multiplayer-fabric # modules/multiplayer_fabric + multiplayer_fabric_mmog
+merge groups-staging remotes/v-sekai-fire/feat/module-open-telemetry # modules/open_telemetry + OTel doc classes
+merge groups-staging remotes/v-sekai-fire/feat/module-sandbox # modules/sandbox
+merge groups-staging remotes/v-sekai-fire/feat/module-speech # modules/speech
+merge groups-staging remotes/v-sekai-fire/feat/module-sqlite # modules/sqlite
