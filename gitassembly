@@ -4,8 +4,8 @@ merge multiplayer-fabric remotes/v-sekai-fire/feat/module-lasso # modules/lasso 
 merge multiplayer-fabric remotes/v-sekai-fire/feat/engine-patches-001 # core/scene/servers/editor/drivers/tests engine patches
 merge multiplayer-fabric remotes/v-sekai-fire/feat/engine-patch-control-gui-input # expose Control.call_gui_input with viewport isolation
 merge multiplayer-fabric remotes/v-sekai-fire/feat/module-http3 # modules/http3 + thirdparty/picoquic + mbedtls
-merge multiplayer-fabric remotes/v-sekai-fire/feat/module-multiplayer-fabric # modules/multiplayer_fabric
-merge multiplayer-fabric remotes/v-sekai-fire/feat/module-multiplayer-fabric-mmog # modules/multiplayer_fabric_mmog + predictive BVH + Lean proofs
+merge multiplayer-fabric remotes/v-sekai-fire/feat/module-multiplayer-fabric-001 # modules/multiplayer_fabric
+merge multiplayer-fabric remotes/v-sekai-fire/feat/module-multiplayer-fabric-mmog-001 # modules/multiplayer_fabric_mmog + predictive BVH + Lean proofs
 merge multiplayer-fabric remotes/v-sekai-fire/feat/module-open-telemetry # modules/open_telemetry + OTel doc classes
 merge multiplayer-fabric remotes/v-sekai-fire/feat/module-sandbox # modules/sandbox
 merge multiplayer-fabric remotes/v-sekai-fire/feat/module-speech # modules/speech
