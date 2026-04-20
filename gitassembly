@@ -1,6 +1,7 @@
 stage multiplayer-fabric remotes/v-sekai-fire/master
 merge multiplayer-fabric remotes/v-sekai-fire/feat/module-keychain # modules/keychain + thirdparty/keychain
 merge multiplayer-fabric remotes/v-sekai-fire/feat/module-lasso # modules/lasso
+merge multiplayer-fabric remotes/v-sekai-fire/fix/lasso-ar-e2big # fix E2BIG on AR in modules/lasso
 merge multiplayer-fabric remotes/v-sekai-fire/feat/module-multiplayer-fabric # modules/multiplayer_fabric + multiplayer_fabric_mmog
 merge multiplayer-fabric remotes/v-sekai-fire/feat/module-open-telemetry # modules/open_telemetry + OTel doc classes
 merge multiplayer-fabric remotes/v-sekai-fire/feat/module-sandbox # modules/sandbox
