@@ -2,9 +2,11 @@
 
 Tooling for assembling the multiplayer-fabric Godot fork from upstream
 and custom patch sets.  The Elixir script `update_godot_v_sekai.exs`
-drives version bumps; `gitassembly/` contains a Go binary that performs
-the actual branch merging, cherry-picking, and conflict resolution
-strategy.  The result feeds into the `multiplayer-fabric-godot` fork.
+drives version bumps; `thirdparty/git-assembler` is a Python 3 script
+that performs the actual branch merging, cherry-picking, and conflict
+resolution strategy; `gitassembly` is the configuration file that
+describes what to merge.  The result feeds into the
+`multiplayer-fabric-godot` fork.
 
 ## Guiding principles
 
@@ -20,31 +22,34 @@ strategy.  The result feeds into the `multiplayer-fabric-godot` fork.
 - **Log every decision.** The assembly script emits structured log
   lines for each merge, cherry-pick, and conflict resolution so the
   run is auditable.
-- **Error tuples in Elixir, error returns in Go.** Neither the Elixir
-  script nor the Go binary should panic or exit non-zero without
-  printing a human-readable error message.
+- **Error tuples in Elixir, exit codes in Python.** Neither the Elixir
+  script nor the Python assembler should exit non-zero without printing
+  a human-readable error message.
 
 ## Workflow
 
 ```
-# Update Godot version
-elixir update_godot_v_sekai.exs --version 4.x.y --dry-run
+# Update Godot version (dry run)
+elixir update_godot_v_sekai.exs --dry-run
 
-# Build gitassembly
-cd gitassembly && go build -o gitassembly . && cd ..
-
-# Run assembly
-./gitassembly/gitassembly assemble --config assembly.toml --dry-run
+# Run assembly directly
+python3 ./thirdparty/git-assembler -av --recreate --config gitassembly
 ```
 
 ## Design notes
 
 ### Assembly configuration
 
-`assembly.toml` (or equivalent) describes the ordered list of upstream
-refs, custom patch branches, and merge strategies.  The assembly binary
-reads this file; no logic is hardcoded in the binary.  Changes to merge
-strategy require a config change, not a code change.
+`gitassembly` describes the ordered list of upstream refs, custom patch
+branches, and merge strategies in a simple line-oriented format:
+
+```
+stage <target-branch> <base-ref>   # reset target to base
+merge <target-branch> <source-ref> # merge source into target
+```
+
+No logic is hardcoded in the assembler.  Changes to merge strategy
+require a config change, not a code change.
 
 ### Thirdparty snapshots
 
@@ -56,7 +61,6 @@ config file.
 
 ### Version derivation
 
-The Elixir script reads the target Godot version from the command line,
-not from a hardcoded constant.  The Go binary derives its output branch
-name from the version string.  Never hardcode version strings in source
-files.
+The Elixir script reads the target Godot version from `.env` (`VERSION`)
+and the command line, not from a hardcoded constant.  Never hardcode
+version strings in source files.
