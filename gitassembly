@@ -9,3 +9,4 @@ merge multiplayer-fabric remotes/v-sekai-fire/feat/module-open-telemetry # modul
 merge multiplayer-fabric remotes/v-sekai-fire/feat/module-sandbox # modules/sandbox
 merge multiplayer-fabric remotes/v-sekai-fire/feat/module-speech # modules/speech
 merge multiplayer-fabric remotes/v-sekai-fire/feat/module-sqlite # modules/sqlite
+merge multiplayer-fabric remotes/v-sekai-fire/feat/tapered_capsules
