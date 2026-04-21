@@ -1,7 +1,10 @@
 stage multiplayer-fabric remotes/v-sekai-fire/feat/module-http3-001 # modules/http3 + thirdparty/picoquic + mbedtls
 merge multiplayer-fabric remotes/v-sekai-fire/feat/module-keychain # modules/keychain + thirdparty/keychain
 merge multiplayer-fabric remotes/v-sekai-fire/feat/module-lasso # modules/lasso + fix/lasso-ar-e2big
-merge multiplayer-fabric remotes/v-sekai-fire/feat/engine-patches-002 # core/scene/servers/editor/drivers/tests engine patches
+merge multiplayer-fabric remotes/v-sekai-fire/feat/engine-patches-ci # CI workflows, Docker, AGENTS.md, gitignore, pre-commit
+merge multiplayer-fabric remotes/v-sekai-fire/feat/engine-patches-core # core/io, core_bind, control, rendering, scene, editor, drivers
+merge multiplayer-fabric remotes/v-sekai-fire/feat/engine-patch-crypto # modules/mbedtls SAN/ECDSA + crypto virtual decls
+merge multiplayer-fabric remotes/v-sekai-fire/feat/engine-patch-predictive-bvh # core/math BVH adapter + thirdparty Lean proofs
 merge multiplayer-fabric remotes/v-sekai-fire/feat/engine-patch-control-gui-input # expose Control.call_gui_input with viewport isolation
 merge multiplayer-fabric remotes/v-sekai-fire/feat/module-multiplayer-fabric-001 # modules/multiplayer_fabric + CMD_INSTANCE_ASSET virtual hook
 merge multiplayer-fabric remotes/v-sekai-fire/feat/module-multiplayer-fabric-mmog-003 # modules/multiplayer_fabric_mmog + predictive BVH + Lean proofs + FabricMMOGTransportPeer
