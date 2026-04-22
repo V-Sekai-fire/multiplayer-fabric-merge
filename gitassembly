@@ -13,4 +13,4 @@ merge multiplayer-fabric remotes/v-sekai-fire/feat/module-sandbox # modules/sand
 merge multiplayer-fabric remotes/v-sekai-fire/feat/module-speech # modules/speech
 merge multiplayer-fabric remotes/v-sekai-fire/feat/module-sqlite # modules/sqlite
 merge multiplayer-fabric remotes/v-sekai-fire/feat/tapered_capsules
-merge multiplayer-fabric remotes/v-sekai-fire/feat/remove-codeowners # remove .github/CODEOWNERS to disable code-owner review enforcement
+merge multiplayer-fabric remotes/v-sekai-fire/feat/remove-codeowners # remove CODEOWNERS file and validate-codeowners pre-commit hook (all entries reference upstream godotengine teams)
