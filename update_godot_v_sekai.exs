@@ -2,6 +2,7 @@
 
 original_branch = "main"
 merge_remote = "v-sekai-fire"
+merge_branch_base = "multiplayer-fabric-base"
 merge_branch = "multiplayer-fabric"
 
 argv = System.argv()
@@ -57,18 +58,24 @@ has_changes =
 run!.("git", ["stash"])
 
 run!.("git", ["checkout", original_branch, "--force"])
+System.cmd("git", ["branch", "-D", merge_branch_base], stderr_to_stdout: true)
 System.cmd("git", ["branch", "-D", merge_branch], stderr_to_stdout: true)
 run!.("python3", ["./thirdparty/git-assembler", "-av", "--recreate", "--config", "gitassembly"])
-run!.("git", ["checkout", merge_branch, "-f"])
 
 if not dry_run do
+  run!.("git", ["checkout", merge_branch_base, "-f"])
+  run!.("git", ["push", merge_remote, merge_branch_base, "-f"])
+
+  run!.("git", ["checkout", merge_branch, "-f"])
   run!.("git", ["commit", "--allow-empty", "-m", "Merge branch '#{merge_branch}'"])
   run!.("git", ["push", merge_remote, merge_branch, "-f"])
+
   run!.("git", ["checkout", original_branch, "--force"])
+  System.cmd("git", ["branch", "-D", merge_branch_base], stderr_to_stdout: true)
   System.cmd("git", ["branch", "-D", merge_branch], stderr_to_stdout: true)
 else
   run!.("git", ["checkout", original_branch, "--force"])
-  IO.puts("#{merge_branch} was created and is ready to push.")
+  IO.puts("#{merge_branch_base} and #{merge_branch} were created and are ready to push.")
 end
 
 IO.puts("ALL DONE. ----------------------------")
