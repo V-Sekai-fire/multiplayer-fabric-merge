@@ -64,3 +64,8 @@ env_mmog.Prepend(CPPPATH=["#modules/sqlite/thirdparty", "#modules/sqlite", "#mod
 **Lesson:** Never rely on another module's SCsub to expose include paths.
 Every module that uses another module's headers must add those paths itself,
 because module load order is alphabetical and not guaranteed.
+
+## Follow-on Issue
+
+Adding multi-path CPPPATH lists on a single line caused `ruff format` failures
+because the lines exceeded 88 characters. See `ruff-format-long-scsub-lines.md`.
