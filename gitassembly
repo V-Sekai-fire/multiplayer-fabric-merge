@@ -1,2 +1,13 @@
 stage multiplayer-fabric remotes/v-sekai-fire/master
-merge multiplayer-fabric remotes/v-sekai-fire/feat/multiplayer-fabric
+merge multiplayer-fabric remotes/v-sekai-fire/feat/engine-patches
+merge multiplayer-fabric remotes/v-sekai-fire/feat/module-sqlite
+merge multiplayer-fabric remotes/v-sekai-fire/feat/module-http3
+merge multiplayer-fabric remotes/v-sekai-fire/feat/module-sandbox
+merge multiplayer-fabric remotes/v-sekai-fire/feat/module-keychain
+merge multiplayer-fabric remotes/v-sekai-fire/feat/module-lasso
+merge multiplayer-fabric remotes/v-sekai-fire/feat/module-openvr
+merge multiplayer-fabric remotes/v-sekai-fire/feat/module-speech
+merge multiplayer-fabric remotes/v-sekai-fire/feat/open-telemetry
+merge multiplayer-fabric remotes/v-sekai-fire/feat/module-multiplayer-fabric
+merge multiplayer-fabric remotes/v-sekai-fire/feat/module-multiplayer-fabric-asset
+merge multiplayer-fabric remotes/v-sekai-fire/feat/module-multiplayer-fabric-mmog
