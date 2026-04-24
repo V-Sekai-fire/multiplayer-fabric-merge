@@ -1,5 +1,6 @@
 stage multiplayer-fabric remotes/v-sekai-fire/master
 merge multiplayer-fabric remotes/v-sekai-fire/feat/engine-patches
+merge multiplayer-fabric remotes/v-sekai-fire/feat/godot-cpp-build
 merge multiplayer-fabric remotes/v-sekai-fire/feat/module-sqlite
 merge multiplayer-fabric remotes/v-sekai-fire/feat/module-http3
 merge multiplayer-fabric remotes/v-sekai-fire/feat/module-sandbox
