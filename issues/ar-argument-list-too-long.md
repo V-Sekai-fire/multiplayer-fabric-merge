@@ -28,25 +28,28 @@ SCons builds `libgodot-cpp.a` by invoking `ar rc` with every `.o` file as
 arguments. On ubuntu-24.04 runners the object count exceeds the kernel
 `ARG_MAX` limit, causing the shell to reject the command.
 
+## Failed approach — shell wrapper at `/usr/local/bin/ar`
+
+Installing a shell script wrapper at `/usr/local/bin/ar` does **not** work.
+When the shell (`sh`) tries to `execve("/usr/local/bin/ar", [all .o files], env)`,
+the kernel returns `E2BIG` before the script ever starts. The wrapper is never
+invoked; `sh` reports "Argument list too long" immediately.
+
 ## Fix
 
-Install a wrapper at `/usr/local/bin/ar` (ahead of `/usr/bin/ar` on PATH)
-that redirects the object list through a temporary response file:
+Add `scu_build=yes` to the SCons invocation. Single Compilation Unit (SCU)
+mode merges many `.cpp` files into one before compiling, reducing the number
+of `.o` files from ~2000 to ~20. The resulting `ar rc` call is well within
+`ARG_MAX`.
 
-```sh
-op="$1"; target="$2"; shift 2
-tmp=$(mktemp /tmp/ar-rsp.XXXXXX)
-printf '%s\n' "$@" > "$tmp"
-/usr/bin/ar "$op" "$target" "@$tmp"
-rc=$?; rm -f "$tmp"; exit $rc
+```yaml
+run: scons --directory=./godot-cpp/test "gdextension_dir=..." ${{ inputs.scons-flags }} scu_build=yes
 ```
 
-GNU `ar` supports `@file` response files since binutils 2.17.
+The shell wrapper step was removed entirely.
 
 **Note:** The fix must be cherry-picked to every branch that has
-`godot-cpp: true` in its Linux matrix entry. A dedicated branch
-`feat/godot-cpp-build` carries the canonical fix; all other affected
-branches receive it via cherry-pick.
+`godot-cpp: true` in its Linux matrix entry.
 
 **Affected branches (cherry-picked):**
 `feat/engine-patches`, `feat/module-sqlite`, `feat/module-http3`,
