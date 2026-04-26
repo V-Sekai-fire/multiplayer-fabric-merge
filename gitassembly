@@ -7,9 +7,6 @@ merge multiplayer-fabric-base remotes/v-sekai-fire/feat/module-sqlite
 merge multiplayer-fabric-base remotes/v-sekai-fire/feat/module-http3
 merge multiplayer-fabric-base remotes/v-sekai-fire/feat/module-sandbox
 merge multiplayer-fabric-base remotes/v-sekai-fire/feat/module-keychain
-merge multiplayer-fabric-base remotes/v-sekai-fire/feat/module-lasso
-merge multiplayer-fabric-base remotes/v-sekai-fire/feat/module-openvr
-merge multiplayer-fabric-base remotes/v-sekai-fire/feat/module-speech
 merge multiplayer-fabric-base remotes/v-sekai-fire/feat/open-telemetry
 
 stage multiplayer-fabric remotes/v-sekai-fire/multiplayer-fabric
