@@ -1,0 +1,3 @@
+[submodule "multiplayer-fabric-godot"]
+	path = multiplayer-fabric-godot
+	url = https://github.com/V-Sekai-fire/multiplayer-fabric-godot.git
